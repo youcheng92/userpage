@@ -1,0 +1,123 @@
+:root{
+    /* =========================
+       品牌主色 (Brand Colors)
+    ========================= */
+    --primary-color: #2563EB;          /* 科技藍 */
+    --primary-hover: #1D4ED8;
+    --primary-light: #DBEAFE;
+    --primary-dark: #1E3A8A;
+
+    /* =========================
+       次要色 (Secondary)
+    ========================= */
+    --secondary-color: #14B8A6;        /* 青綠色 */
+    --secondary-hover: #0F766E;
+    --secondary-light: #CCFBF1;
+    --secondary-dark: #134E4A;
+
+    /* =========================
+       強調色 (Accent)
+    ========================= */
+    --accent-color: #F97316;           /* 亮橘色 */
+    --accent-hover: #EA580C;
+    --accent-light: #FED7AA;
+
+    /* =========================
+       背景色系 (Background)
+    ========================= */
+    --background-color: #0F172A;       /* 主背景 */
+    --background-secondary: #1E293B;   /* 卡片背景 */
+    --background-tertiary: #334155;    /* 區塊背景 */
+    --background-light: #F8FAFC;       /* 淺色區域 */
+
+    /* =========================
+       Hero / Banner
+    ========================= */
+    --hero-overlay: rgba(15,23,42,0.75);
+    --hero-gradient-start: #0F172A;
+    --hero-gradient-end: #1E3A8A;
+
+    /* =========================
+       文字色系 (Text)
+    ========================= */
+    --text-primary: #F8FAFC;
+    --text-secondary: #CBD5E1;
+    --text-muted: #94A3B8;
+    --text-dark: #0F172A;
+    --text-link: #60A5FA;
+
+    /* =========================
+       邊框與分隔線
+    ========================= */
+    --border-color: #334155;
+    --border-light: #475569;
+    --divider-color: #1E293B;
+
+    /* =========================
+       卡片色系
+    ========================= */
+    --card-bg: #1E293B;
+    --card-hover: #273549;
+    --card-border: #334155;
+
+    /* =========================
+       按鈕色系
+    ========================= */
+    --button-primary-bg: #2563EB;
+    --button-primary-text: #FFFFFF;
+
+    --button-secondary-bg: #1E293B;
+    --button-secondary-text: #F8FAFC;
+
+    /* =========================
+       狀態顏色
+    ========================= */
+    --success-color: #22C55E;
+    --warning-color: #FACC15;
+    --error-color: #EF4444;
+    --info-color: #38BDF8;
+
+    /* =========================
+       技能標籤 (Skill Tags)
+    ========================= */
+    --tag-html: #E34F26;
+    --tag-css: #1572B6;
+    --tag-js: #F7DF1E;
+    --tag-react: #61DAFB;
+    --tag-python: #3776AB;
+    --tag-java: #ED8B00;
+    --tag-nodejs: #339933;
+    --tag-git: #F05032;
+
+    /* =========================
+       頭像區域
+    ========================= */
+    --avatar-border: #60A5FA;
+    --avatar-shadow: rgba(37,99,235,0.4);
+
+    /* =========================
+       陰影
+    ========================= */
+    --shadow-sm: rgba(0,0,0,0.15);
+    --shadow-md: rgba(0,0,0,0.25);
+    --shadow-lg: rgba(0,0,0,0.40);
+
+    /* =========================
+       作品集區塊
+    ========================= */
+    --portfolio-card-bg: #1E293B;
+    --portfolio-card-hover: #334155;
+    --portfolio-overlay: rgba(15,23,42,0.85);
+
+    /* =========================
+       學經歷時間軸
+    ========================= */
+    --timeline-line: #2563EB;
+    --timeline-dot: #60A5FA;
+
+    /* =========================
+       Footer
+    ========================= */
+    --footer-bg: #020617;
+    --footer-text: #94A3B8;
+}

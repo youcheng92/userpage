@@ -1,0 +1,256 @@
+/* 匯入字體 */
+@import url("https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap");
+
+/* 定義顏色 */
+:root {
+    /* 品牌主色 */
+    --primary-color: #0359AE;
+    /* 海洋藍 */
+    --secondary-color: #14B09B;
+    /* 湖水綠 */
+
+    /* 輔助色 */
+    --accent-color: #CC8A56;
+    /* 沙灘棕 */
+
+    /* 背景色 */
+    --background-color: #EBE5D9;
+    /* 淺米白 */
+
+    /* 版面顏色 */
+    --navbar-color: #0359AE;
+    /* 導覽列 */
+    --banner-color: #14B09B;
+    /* 首頁橫幅 */
+    --footer-color: #023C76;
+    /* 頁尾深藍 */
+
+    /* 文字顏色 */
+    --text-primary: #1F2937;
+    /* 主要文字 */
+    --text-secondary: #6B7280;
+    /* 次要文字 */
+    --text-light: #FFFFFF;
+    /* 白色文字 */
+
+    /* 按鈕顏色 */
+    --button-color: #CC8A56;
+    /* 主要按鈕 */
+    --button-hover-color: #B87440;
+    /* 按鈕滑過 */
+
+    /* 卡片與區塊 */
+    --card-background: #FFFFFF;
+    --section-background: #F7F4ED;
+
+    /* 文字背景色 */
+    --text-background: #F2EEE6;
+
+    /* 邊框色 */
+    --border-color: #D8D2C7;
+}
+
+/* 字體大小 */
+.fw-100 {
+    font-weight: 100;
+}
+
+.fw-200 {
+    font-weight: 200;
+}
+
+.fw-300 {
+    font-weight: 300;
+}
+
+.fw-400 {
+    font-weight: 400;
+}
+
+.fw-500 {
+    font-weight: 500;
+}
+
+.fw-600 {
+    font-weight: 600;
+}
+
+.fw-700 {
+    font-weight: 700;
+}
+
+.fw-800 {
+    font-weight: 800;
+}
+
+.fw-900 {
+    font-weight: 900;
+}
+
+.btn-text-primary {
+    color: var(--text-primary);
+}
+
+.btn-text-secondary {
+    color: var(--text-secondary);
+}
+
+.btn-text-light {
+    color: var(--text-light);
+}
+
+/* 由上往下 */
+.roller-t {
+    position: relative;
+    overflow: hidden;
+}
+
+.roller-t .roller-box {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    background: linear-gradient(135deg,
+            rgba(255, 255, 255, 0.25),
+            rgba(255, 255, 255, 0.08));
+
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.15),
+        inset 0 1px 1px rgba(255, 255, 255, 0.3);
+
+    top: -100%;
+    transition: all 1s;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.roller-t:hover .roller-box {
+    top: 0;
+}
+
+/* 由下往上 */
+.roller-b {
+    position: relative;
+    overflow: hidden;
+}
+
+.roller-b .roller-box {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    background: linear-gradient(135deg,
+            rgba(255, 255, 255, 0.25),
+            rgba(255, 255, 255, 0.08));
+
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.15),
+        inset 0 1px 1px rgba(255, 255, 255, 0.3);
+
+    bottom: -100%;
+    transition: all 1s;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.roller-b:hover .roller-box {
+    bottom: 0;
+}
+
+/* 由左至右 */
+.roller-l {
+    position: relative;
+    overflow: hidden;
+}
+
+.roller-l .roller-box {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    background: linear-gradient(135deg,
+            rgba(255, 255, 255, 0.25),
+            rgba(255, 255, 255, 0.08));
+
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.15),
+        inset 0 1px 1px rgba(255, 255, 255, 0.3);
+
+    left: -100%;
+    transition: all 1s;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.roller-l:hover .roller-box {
+    left: 0;
+}
+
+/* 由右至左 */
+.roller-r {
+    position: relative;
+    overflow: hidden;
+}
+
+.roller-r .roller-box {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    background: linear-gradient(135deg,
+            rgba(255, 255, 255, 0.25),
+            rgba(255, 255, 255, 0.08));
+
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.15),
+        inset 0 1px 1px rgba(255, 255, 255, 0.3);
+
+    right: -100%;
+    transition: all 1s;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.roller-r:hover .roller-box {
+    right: 0;
+}
+
+.roller-btn {
+        padding: 12px 30px;
+        font-weight: 700;
+        border-radius: 30px;
+    }
+
+/* 背景圖 */
+.bg-cover{
+            background-position: center center;
+            background-size: cover;
+        }

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>個人首頁</title>
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/userpage.css">
+    <style>
+        body{
+            background-color: var(--background-color);
+        }
+        /* S01主頁 */
+        .s01{
+            background-color: var(--background-secondary);
+            height: 100vh;
+            position: relative;
+        }
+        .s01 .box01{
+            width: 200px;
+            height: 200px;
+            background-color: var(--primary-color);
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .s01 .box02{
+            width: 200px;
+            height: 200px;
+            background-color: var(--primary-color);
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        .s01 .box03{
+            width: 200px;
+            height: 200px;
+            background-color: var(--primary-color);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+        .s01 .box04{
+            width: 200px;
+            height: 200px;
+            background-color: var(--primary-color);
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+        .s01 .userImg{
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            bottom: 50px;
+            right: 50px;
+            border-radius: 15px;
+            background-position: center, center;
+            background-size: cover;
+            background-color: var(--background-tertiary);
+            background-image: url("images/userpage01.jpg");
+            background-attachment: fixed;   /* 固定圖片 */    
+        }
+        .userText{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: var(--text-muted);
+            font-weight: bolder;
+        }
+        .userText h1{
+            font-size: 72px;
+            margin-bottom: 0;
+        }
+        .userText h2{
+            font-size: 18px;
+        }
+        .userText p{
+            font-size: 36px;
+        }
+        /* S02作品區 */
+        .s02{
+            padding: 80px 10%;
+            background-color: var(--background-color);
+            text-align: center;
+        }
+        .s02 h2{
+            font-size: 36px;
+            color: var(--text-primary);
+        }
+        .s02 .card{
+            display: inline-block;
+            vertical-align: top;
+            margin: 15px;
+            width: 220px;
+            background-color: var(--card-bg);
+            padding: 20px;
+            text-align: left;
+            border-radius: 12px;
+        }
+        .s02 .card h3{
+            color: var(--text-primary);
+            margin-top: 0;
+        }
+        .s02 .card p{
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+        .s02 .card a{
+            position: relative;
+            left: 65%;
+            text-decoration: none;
+            background-color: var(--button-primary-bg);
+            color: var(--button-primary-text);
+            padding: 10px;
+            border-radius: 12px;
+        }
+
+    </style>
+</head>
+<body>
+    <section class="s01">
+            <div class="box01"></div>
+            <div class="box02"></div>
+            <div class="box03"></div>
+            <div class="box04"></div>
+            <div class="userImg"></div>
+            <div class="userText">
+                <h1>Hello World!</h1>
+                <hr>
+                <h2>Hello World!</h2>
+                <p>Hello World!</p>
+            </div>
+    </section>
+    <section class="s02">
+        <h2>我的作品</h2>
+        <!-- 作品01 -->
+        <div class="card">
+            <h3>切版練習</h3>
+            <p>使用HTML、CSS練習切版</p>
+            <a href="20260605-1.html">查看作品</a>
+        </div>
+
+        <!-- 作品02 -->
+        <div class="card">
+            <h3>Table功能練習</h3>
+            <p>利用Table功能在HTML上產生表格</p>
+            <a href="20260605-ch5-ai.html">查看作品</a>
+        </div>
+
+        <!-- 作品03 -->
+        <div class="card">
+            <h3>購物網站</h3>
+            <p>運用HTML、CSS、javascript製作展示頁面</p>
+            <a href="#">查看作品</a>
+        </div>
+
+        <!-- 作品04 -->
+        <div class="card">
+            <h3>購物網站</h3>
+            <p>運用HTML、CSS、javascript製作展示頁面</p>
+            <a href="#">查看作品</a>
+        </div>
+    </section>
+</body>
+</html>

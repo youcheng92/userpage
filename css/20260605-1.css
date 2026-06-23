@@ -1,0 +1,92 @@
+.container{
+    margin-top: 50px;
+}
+/* 卡片美化 */
+.card{
+    height: 100%;
+    transition: 0.3s;
+}
+
+.card:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,.15);
+}
+
+.card-img-top{
+    height: 250px;
+    object-fit: cover;
+}
+
+/* 原本英文內容隱藏 */
+.card-title,
+.card-text{
+    display: none;
+}
+
+/* 第一張卡片 */
+.col:nth-child(1) .card-body::before{
+    content: "國光客運";
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #0d6efd;
+    margin-bottom: 10px;
+}
+
+.col:nth-child(1) .card-body::after{
+    content: "國光客運提供全台各地長途客運服務，路線涵蓋台北、台中、高雄及各大觀光景點，並提供舒適座椅、即時班次查詢及線上訂票服務。";
+    display: block;
+    line-height: 1.8;
+    color: #666;
+}
+
+/* 第二張卡片 */
+.col:nth-child(2) .card-body::before{
+    content: "統聯客運";
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #198754;
+    margin-bottom: 10px;
+}
+
+.col:nth-child(2) .card-body::after{
+    content: "統聯客運擁有完整的國道客運網絡，提供快速便捷的城際運輸服務，並結合電子票證與行動支付，讓旅客享受便利的乘車體驗。";
+    display: block;
+    line-height: 1.8;
+    color: #666;
+}
+
+/* 第三張卡片 */
+.col:nth-child(3) .card-body::before{
+    content: "和欣客運";
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #dc3545;
+    margin-bottom: 10px;
+}
+
+.col:nth-child(3) .card-body::after{
+    content: "和欣客運以豪華商務座椅聞名，提供高品質的國道客運服務，車內配備充電設備及影音娛樂系統，打造舒適的乘車環境。";
+    display: block;
+    line-height: 1.8;
+    color: #666;
+}
+
+/* 第四張卡片 */
+.col:nth-child(4) .card-body::before{
+    content: "阿羅哈客運";
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fd7e14;
+    margin-bottom: 10px;
+}
+
+.col:nth-child(4) .card-body::after{
+    content: "阿羅哈客運致力於提供安全、準時且舒適的客運服務，透過專業駕駛團隊與完善的車輛管理制度，讓旅客安心抵達目的地。";
+    display: block;
+    line-height: 1.8;
+    color: #666;
+}
