@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ch6 practice</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/my.css">
+</head>
+<style>
+    .header {
+        height: 200px;
+        background-image: url(images/userpage01.jpg);
+        background-position: center center;
+        background-size: cover;
+    }
+
+    .circle {
+        height: 100px;
+        margin-top: 15px;
+        font-size: 45px;
+        line-height: 100px;
+        font-size: 45px;
+        font-weight: 900;
+        text-align: center;
+        color: aliceblue;
+    }
+
+    @media screen and (min-width: 768px) {
+        .circle {
+            height: 200px;
+            line-height: 200px;
+        }
+
+    }
+
+    @media screen and (min-width: 992px) {
+        .circle {
+            width: 200px;
+            border-radius: 50%;
+        }
+
+    }
+
+    @media screen and (min-width: 1200px) {
+        .circle {
+            width: 240px;
+            height: 240px;
+            line-height: 240px;
+            border-radius: 50%;
+        }
+
+    }
+
+    .box {
+        position: relative;
+        overflow: hidden;
+        border: none;
+        border-radius: 15px;
+        background: #fff;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, .12);
+        transition: all .3s ease;
+        height: 100%;
+    }
+
+    .box:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, .2);
+    }
+
+    .box img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+    }
+
+    .restaurant-body {
+        padding: 20px;
+    }
+
+    .restaurant-name {
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+
+    .restaurant-address {
+        color: #6c757d;
+        font-size: .95rem;
+        margin-bottom: 15px;
+    }
+
+    .restaurant-desc {
+        color: #495057;
+        line-height: 1.8;
+        min-height: 90px;
+    }
+
+
+    .box:hover .roller-box {
+        opacity: 1;
+    }
+
+    
+</style>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 d-none d-sm-block">
+                <div class="header bg-primary"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-md-3">
+                <div class="circle bg-primary">選單01</div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="circle bg-primary">選單02</div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="circle bg-primary">選單03</div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="circle bg-primary">選單04</div>
+            </div>
+        </div>
+        <div class="row" id="contentBox">
+            <div class="col-md-6 col-lg-4 mt-4">
+                <div class="box roller-b">
+                    <!-- Hover顯示 -->
+                    <div class="roller-box">
+                        <a href="#" class="btn btn-success roller-btn">
+                            查看詳情
+                        </a>
+                    </div>
+
+                    <!-- 餐廳圖片 -->
+                    <img src="images/restaurant01.jpg" alt="" class="img-fluid">
+
+                    <!-- 內容 -->
+                    <div class="restaurant-body">
+
+                        <div class="restaurant-name">
+                            森林食光餐廳
+                        </div>
+
+                        <div class="restaurant-address">
+                            <i class="fa-solid fa-location-dot me-2"></i>
+                            台中市西屯區台灣大道三段99號
+                        </div>
+
+                        <div class="restaurant-desc">
+                            主打新鮮在地食材與創意料理，舒適的用餐空間結合自然綠意設計，
+                            適合家庭聚餐、朋友聚會與情侶約會。
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-4.0.0.js"></script>
+    <script>
+        $(function () {
+            $.ajax({
+                type: "GET",
+                url: "http://localhost:3000/travelFood",
+                dataType: "json",
+                success: function (data) {
+                    console.log(data);
+                    // 資料清洗
+                    const cleanData = data.map(function (item, index) {
+                        // 名稱
+                        let name = (item.Name ?? "").trim();
+                        if (name == "") {
+                            name = "未提供名稱"
+                        }
+
+                        // 圖片
+                        let pic = (item.PicURL ?? "").trim();
+                        if (pic == "") {
+                            pic = "images/userpage01.jpg"
+                        }
+
+                        // 地址
+                        let city = (item.City ?? "").trim();
+                        let town = (item.Town ?? "").trim();
+                        let address = (item.Address ?? "").trim();
+                        if (address == "") {
+                            address = "未提供地址"
+                        }
+
+                        // 簡介
+                        let description = (item.HostWords ?? "").trim();
+                        if (description == "") {
+                            description = "未提供簡介"
+                        }
+
+                        // 連結
+                        let url = (item.Url ?? "").trim();
+                        if (url == "") {
+                            url = "#"
+                        }
+
+                        return {
+                            id: index + 1,
+                            name: name,
+                            pic: pic,
+                            address: city + town + address,
+                            description: description,
+                            url: url
+                        }
+                    });
+                    console.log("清理後的資料", cleanData)
+
+                    $("#contentBox").empty();
+                    cleanData.forEach(function (item) {
+                        let strHTML = `
+                            <div class="col-md-6 col-lg-4 mt-4">
+                                <div class="box roller-b">
+                                    <!-- Hover顯示 -->
+                                    <div class="roller-box ">
+                                        <a href="${item.url}" class="btn btn-success roller-btn">
+                                        查看詳情
+                                        </a>
+                                    </div>
+
+                                    <!-- 餐廳圖片 -->
+                                    <img src="${item.pic}" alt="" class="img-fluid">
+
+                                    <!-- 內容 -->
+                                    <div class="restaurant-body">
+
+                                        <div class="restaurant-name">
+                                            ${item.name}
+                                        </div>
+
+                                        <div class="restaurant-address">
+                                            <i class="fa-solid fa-location-dot me-2"></i>
+                                             ${item.address}
+                                        </div>
+
+                                        <div class="restaurant-desc">
+                                            ${item.description}
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>    
+                        `;
+                        $("#contentBox").append(strHTML);
+                    });
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ch7 時間軸practice</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/my.css">
+    <style>
+        .imgbox {
+            height: 250px;
+        }
+
+        .timeline-section {
+            position: relative;
+        }
+
+        .timeline-section::before {
+            position: absolute;
+            content: "";
+            top: 10px;
+            bottom: 0;
+            width: 5px;
+            background-color: rgb(59, 0, 136);
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .timeline-section-pointer{
+            position: relative;
+        }
+        .timeline-section-pointer::before{
+            position: absolute;
+            content: "";
+            width: 20px;
+            height: 20px;
+            background-color: azure;
+            top: 0;
+            border-radius: 50%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid #000;
+        }
+        @media screen and (max-width: 768px) {
+            .timeline-section::before, .timeline-section-pointer::before{
+                display: none;
+            }
+            /* 
+            .timeline-section::before{
+                opacity: 0%;
+            }
+            .timeline-section-pointer::before{
+                opacity: 0%;
+            }
+            */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+    <div class="display-2 fw-900 text-center text-primary my-4">
+        2026 精選旅遊行程
+    </div>
+
+    <div class="timeline-section">
+
+        <!-- 北海道 -->
+        <div class="row align-items-center timeline-section-pointer">
+            <div class="col-md-6 mt-3">
+                <div class="imgbox bg-cover roller-l"
+                    style="background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb');">
+                    <div class="roller-box">
+                        <a href="#" class="btn btn-light roller-btn">查看詳情</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 mt-3">
+                <div class="textbox">
+                    <div class="h2 text-primary">
+                        日本北海道雪國之旅
+                    </div>
+
+                    <p>
+                        暢遊札幌、小樽與富良野，
+                        體驗浪漫雪景、溫泉飯店及北海道特色美食。
+                    </p>
+
+                    <ul>
+                        <li>旅遊天數：6天5夜</li>
+                        <li>出發日期：每週三、六</li>
+                        <li>住宿：四星級溫泉飯店</li>
+                        <li>售價：NT$39,900起</li>
+                    </ul>
+
+                    <a href="#" class="btn btn-success btn-lg">
+                        立即預訂
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 首爾 -->
+        <div class="row align-items-center flex-row-reverse timeline-section-pointer">
+            <div class="col-md-6 mt-3">
+                <div class="imgbox bg-cover roller-r"
+                    style="background-image: url('https://images.unsplash.com/photo-1538485399081-7c897c1f2b4d');">
+                    <div class="roller-box">
+                        <a href="#" class="btn btn-light roller-btn">查看詳情</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 mt-3">
+                <div class="textbox">
+                    <div class="h2 text-danger">
+                        韓國首爾購物美食團
+                    </div>
+
+                    <p>
+                        探索明洞、弘大、景福宮，
+                        品嚐韓式燒肉、炸雞及人氣咖啡廳。
+                    </p>
+
+                    <ul>
+                        <li>旅遊天數：5天4夜</li>
+                        <li>出發日期：天天出發</li>
+                        <li>住宿：市中心精品飯店</li>
+                        <li>售價：NT$26,800起</li>
+                    </ul>
+
+                    <a href="#" class="btn btn-success btn-lg">
+                        立即預訂
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 曼谷 -->
+        <div class="row align-items-center timeline-section-pointer">
+            <div class="col-md-6 mt-3">
+                <div class="imgbox bg-cover roller-l"
+                    style="background-image: url('https://images.unsplash.com/photo-1508009603885-50cf7c579365');">
+                    <div class="roller-box">
+                        <a href="#" class="btn btn-light roller-btn">查看詳情</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 mt-3">
+                <div class="textbox">
+                    <div class="h2 text-warning">
+                        泰國曼谷自由行
+                    </div>
+
+                    <p>
+                        四面佛、鄭王廟、水上市場一次體驗，
+                        享受泰式按摩與夜市文化。
+                    </p>
+
+                    <ul>
+                        <li>旅遊天數：5天4夜</li>
+                        <li>出發日期：每週二、五</li>
+                        <li>住宿：五星級飯店</li>
+                        <li>售價：NT$22,900起</li>
+                    </ul>
+
+                    <a href="#" class="btn btn-success btn-lg">
+                        立即預訂
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 瑞士 -->
+        <div class="row align-items-center flex-row-reverse timeline-section-pointer">
+            <div class="col-md-6 mt-3">
+                <div class="imgbox bg-cover roller-r"
+                    style="background-image: url('https://images.unsplash.com/photo-1521295121783-8a321d551ad2');">
+                    <div class="roller-box">
+                        <a href="#" class="btn btn-light roller-btn">查看詳情</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 mt-3">
+                <div class="textbox">
+                    <div class="h2 text-success">
+                        瑞士阿爾卑斯山之旅
+                    </div>
+
+                    <p>
+                        搭乘冰河列車、漫遊少女峰，
+                        欣賞歐洲最壯麗的雪山湖泊景色。
+                    </p>
+
+                    <ul>
+                        <li>旅遊天數：10天8夜</li>
+                        <li>出發日期：每月固定團</li>
+                        <li>住宿：精選四星級飯店</li>
+                        <li>售價：NT$129,900起</li>
+                    </ul>
+
+                    <a href="#" class="btn btn-success btn-lg">
+                        立即預訂
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
