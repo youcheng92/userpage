@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ch11 表單練習(JavaScript)</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/my.css">
+</head>
+
+<body>
+    <div class="container pt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6 mt-3">
+                <div class="mb-3 display-4 fw-900 text-center text-bg-success py-2">新增生鮮產品</div>
+                <div class="mb-3 form-floating">
+                    <input type="text" class="form-control form-control-lg" name="" id="pname" placeholder="">
+                    <label for="pname" class="form-label">產品名稱(字數1~6)</label>
+                    <div class="valid-feedback">符合規定</div>
+                    <div class="invalid-feedback">不符合規定</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="pnum" class="form-label">數量(1~10)</label>
+                    <input type="number" class="form-control form-control-lg" value="1" min="1" max="10" id="pnum"
+                        placeholder="請輸入數量">
+                    <div class="valid-feedback">數量正確</div>
+                    <div class="invalid-feedback">數量不正確</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="pclass" class="form-label">產品種類</label>
+                    <input type="text" class="form-control form-control-lg" list="datalistoption" name="pclass"
+                        id="pclass" placeholder="請輸入產品種類">
+                    <datalist id="datalistoption">
+                        <option value="蘋果"></option>
+                        <option value="香蕉"></option>
+                        <option value="芭樂"></option>
+                    </datalist>
+                    <div class="valid-feedback">產品種類正確</div>
+                    <div class="invalid-feedback">產品種類不正確</div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="pstore" class="form-label">門市</label>
+                    <select name="pstore" id="pstore" class="form-select form-select-lg">
+                        <option value="---選擇派送門市---" selected class="text-center fw-900">---選擇派送門市---</option>
+                        <option value="福星店">福星店</option>
+                        <option value="文心店">文新店</option>
+                        <option value="文華店">文華店</option>
+                        <option value="青海店">青海店</option>
+                    </select>
+                    <div class="valid-feedback">已選擇門市</div>
+                    <div class="invalid-feedback">請選擇門市</div>
+                </div>
+
+                <div class="mb-3 form-check form-switch">
+                    <input type="checkbox" id="pstatus" class="form-check-input" checked>
+                    <label for="" id="pstatusText" class="form-label">配送方式: 冷藏</label>
+                </div>
+
+                <div class="mb-3">
+                    <div class="form-label fw-900">配送方案(可複選)</div>
+                    <div id="pdelivery" class="is-invalid">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input delivery" value="方案1">
+                            <label for="" class="form-check-label">方案1</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input delivery" value="方案2">
+                            <label for="" class="form-check-label">方案2</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input delivery" value="方案3">
+                            <label for="" class="form-check-label">方案3</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input delivery" value="方案4">
+                            <label for="" class="form-check-label">方案4</label>
+                        </div>
+                    </div>
+                    <div class="valid-feedback">已選擇方案</div>
+                    <div class="invalid-feedback">未選擇方案</div>
+                </div>
+
+                <div class="mb-3">
+                    <div class="form-label fw-900">進貨來源(單選)</div>
+                    <div id="psupply" class="is-invalid">
+                        <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input supply" name="supply" value="台灣">
+                            <label for="" class="form-check-label">台灣</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input supply" name="supply" value="美國">
+                            <label for="" class="form-check-label">美國</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input supply" name="supply" value="日本">
+                            <label for="" class="form-check-label">日本</label>
+                        </div>
+                    </div>
+                    <div class="valid-feedback">已選擇進貨來源</div>
+                    <div class="invalid-feedback">未選擇進貨來源</div>
+                </div>
+
+                <div class="text-end mt4">
+                    <button class="btn btn-secondary">取消</button>
+                    <button class="btn btn-primary" id="okBtn">確認</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-5 justify-content-center d-none" id="pconfirm">
+            <div class="col-md-6">
+                <div class="display-5 fw-900 text-center text-bg-success py-2 rounded-3">產品派送明細確認</div>
+                <div id="showmessage"></div>
+                <button class="btn btn-secondary mt-3 w-100">取消</button>
+                <button class="btn btn-warning mt-3 w-100">確認送出</button>
+            </div>
+        </div>
+    </div>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-4.0.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        // 用於判斷輸入格式是否正確的變數
+        let flag_pname = false;
+        let flag_pnum = true;
+        let flag_pclass = false;
+        let flag_pstore = false;
+        let flag_delivery = false;
+        let flag_supply = false;
+
+        $(function () {
+            // 監聽#pname
+            $("#pname").on("input", function () {
+                //消除空格
+                let pname = $(this).val().trim();
+                if (pname.length >= 1 && pname.length <= 6) {
+                    // 符合規定
+                    $(this).removeClass("is-invalid");
+                    $(this).addClass("is-valid");
+                    flag_pname = true;
+                }
+                else {
+                    // 不符合規定
+                    $(this).removeClass("is-valid");
+                    $(this).addClass("is-invalid");
+                    flag_pname = false;
+                }
+            });
+
+            // 監聽pnum 數字記得使用Number()
+            $("#pnum").on("input", function () {
+                //消除空格
+                let pnum = Number($(this).val());
+                if (pnum >= 1 && pnum <= 10) {
+                    // 符合規定
+                    $(this).removeClass("is-invalid");
+                    $(this).addClass("is-valid");
+                    flag_pnum = true;
+                }
+                else {
+                    // 不符合規定
+                    $(this).removeClass("is-valid");
+                    $(this).addClass("is-invalid");
+                    flag_pnum = false;
+                }
+            });
+
+            // 監聽#pclass
+            $("#pclass").on("input", function () {
+                //消除空格
+                let pclass = $(this).val().trim();
+                if (pclass == "蘋果" || pclass == "香蕉" || pclass == "芭樂") {
+                    // 符合規定
+                    $(this).removeClass("is-invalid");
+                    $(this).addClass("is-valid");
+                    flag_pclass = true;
+                }
+                else {
+                    // 不符合規定
+                    $(this).removeClass("is-valid");
+                    $(this).addClass("is-invalid");
+                    flag_pclass = false;
+                }
+            });
+
+            // 監聽pstore
+            $("#pstore").on("change", function () {
+                //消除空格
+                let pstore = $(this).val();
+                if (pstore != "---選擇派送門市---") {
+                    // 符合規定
+                    $(this).removeClass("is-invalid");
+                    $(this).addClass("is-valid");
+                    flag_pstore = true;
+                }
+                else {
+                    // 不符合規定
+                    $(this).removeClass("is-valid");
+                    $(this).addClass("is-invalid");
+                    flag_pstore = false;
+                }
+            });
+
+            // 監聽pstatus
+            $("#pstatus").on("change", function () {
+                let pstatus = $(this).prop("checked");
+                if (pstatus) {
+                    $("#pstatusText").text("配送方式: 冷藏");
+                }
+                else {
+                    $("#pstatusText").text("配送方式: 常溫");
+                }
+            });
+
+            // 監聽.delivery
+            $(".delivery").on("change", function(){
+                let count = $(".delivery:checked").length;
+                if(count > 0){
+                    $("#pdelivery").removeClass("is-invalid");
+                    $("#pdelivery").addClass("is-valid");
+                    flag_delivery = true;
+                }
+                else{
+                    $("#pdelivery").removeClass("is-valid");
+                    $("#pdelivery").addClass("is-invalid");
+                    flag_delivery = false;
+                }
+            });
+
+            // 監聽.supply
+            $(".supply").on("change", function(){
+                let supply = $(".supply:checked").val();
+                if(supply != undefined){
+                    $("#psupply").removeClass("is-invalid");
+                    $("#psupply").addClass("is-valid");
+                    flag_supply = true;
+                }
+                else{
+                    $("#psupply").removeClass("is-valid");
+                    $("#psupply").addClass("is-invalid");
+                    flag_supply = false;
+                }
+            });
+
+            // 按鈕監聽
+            $("#okBtn").on("click", function () {
+                if (flag_pname && flag_pnum && flag_pclass && flag_pstore && flag_delivery && flag_supply) {
+                    $("#pconfirm").removeClass("d-none");
+
+                    let pstatus = $("#pstatus").prop("checked") ? "冷藏" : "常溫";
+
+                    let deliveryArray = [];
+                    $(".delivery:checked").each(function(){
+                        deliveryArray.push($(this).val());
+                    });
+
+                    let strHTML = `
+                <h3>產品名稱: ${$("#pname").val()}</h3>
+                <h3>產品數量: ${$("#pnum").val()}</h3>
+                <h3>產品種類: ${$("#pclass").val()}</h3>
+                <h3>派送門市: ${$("#pstore").val()}</h3>
+                <h3>配送方式: ${pstatus}</h3>
+                <h3>適用方案: ${deliveryArray.join("/")}</h3>
+                <h3>進貨來源: ${$(".supply:checked").val()}</h3>
+                `;
+                    $("#showmessage").html(strHTML);
+                }
+                else {
+                    $("#pconfirm").addClass("d-none");
+                    Swal.fire({
+                        icon: "error",
+                        title: "錯誤",
+                        text: "有欄位輸入錯誤!請確認!",
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
