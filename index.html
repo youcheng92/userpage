@@ -1,176 +1,333 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>個人首頁</title>
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/userpage.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
 
     <style>
-        body{
+        body {
             background-color: var(--background-color);
-        }
-        /* S01主頁 */
-        .s01{
-            background-color: var(--background-secondary);
-            height: 100vh;
-            position: relative;
-        }
-        .s01 .box01{
-            width: 200px;
-            height: 200px;
-            background-color: var(--primary-color);
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
-        .s01 .box02{
-            width: 200px;
-            height: 200px;
-            background-color: var(--primary-color);
-            position: absolute;
-            top: 0;
-            right: 0;
-        }
-        .s01 .box03{
-            width: 200px;
-            height: 200px;
-            background-color: var(--primary-color);
-            position: absolute;
-            bottom: 0;
-            left: 0;
-        }
-        .s01 .box04{
-            width: 200px;
-            height: 200px;
-            background-color: var(--primary-color);
-            position: absolute;
-            bottom: 0;
-            right: 0;
-        }
-        .s01 .userImg{
-            position: absolute;
-            top: 50px;
-            left: 50px;
-            bottom: 50px;
-            right: 50px;
-            border-radius: 15px;
-            background-position: center, center;
-            background-size: cover;
-            background-color: var(--background-tertiary);
-            background-image: url("images/userpage01.jpg");
-            background-attachment: fixed;   /* 固定圖片 */    
-        }
-        .userText{
-            position: absolute;
-            top: 50%;
-            left: 25%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            color: var(--text-dark);
-            font-weight: bolder;
-        }
-        .userText h1{
-            font-size: 72px;
-            margin-bottom: 0;
-        }
-        .userText h2{
-            font-size: 36px;
-        }
-        .userText p{
-            font-size: 28px;
-        }
-        /* S02作品區 */
-        .s02{
-            padding: 80px 10%;
-            background-color: var(--background-color);
-            text-align: center;
-        }
-        .s02 h2{
-            font-size: 36px;
-            color: var(--text-primary);
-        }
-        .s02 .card{
-            display: inline-block;
-            vertical-align: top;
-            margin: 15px;
-            width: 220px;
-            background-color: var(--card-bg);
-            padding: 20px;
-            text-align: left;
-            border-radius: 12px;
-        }
-        .s02 .card h3{
-            color: var(--text-primary);
-            margin-top: 0;
-        }
-        .s02 .card p{
-            line-height: 1.7;
-            color: var(--text-secondary);
-        }
-        .s02 .card a{
-            position: relative;
-            left: 65%;
-            text-decoration: none;
-            background-color: var(--button-primary-bg);
-            color: var(--button-primary-text);
-            padding: 10px;
-            border-radius: 12px;
         }
 
+        /* S01主頁 */
+        .s01 {
+            min-height: 100vh;
+            background: linear-gradient(135deg,
+                    var(--background-color),
+                    var(--section-background));
+        }
+
+        .s01 img {
+            border: 8px solid white;
+        }
+
+        .s01 h1 {
+            color: var(--text-primary);
+        }
+
+        .s01 h3 {
+            color: var(--primary-color);
+        }
+
+        .s02 {
+            background: var(--section-background);
+        }
+
+        .s02 .container h2{
+            color: var(--text-primary);
+        }
+
+        .portfolio-card {
+
+            height: 100%;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            background: var(--card-background);
+
+            border-radius: 18px;
+
+            padding: 30px;
+
+            border: 1px solid var(--border-color);
+
+            transition: .35s;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+        /* 左側品牌色線 */
+
+        .portfolio-card::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 6px;
+            height: 100%;
+
+            background: var(--primary-color);
+
+            transform: scaleY(0);
+
+            transform-origin: top;
+
+            transition: .35s;
+        }
+
+        /* Hover */
+
+        .portfolio-card:hover {
+
+            transform: translateY(-10px);
+
+            box-shadow: 0 20px 40px rgba(0, 0, 0, .15);
+
+        }
+
+        .portfolio-card:hover::before {
+
+            transform: scaleY(1);
+
+        }
+
+        .portfolio-icon {
+
+            width: 70px;
+            height: 70px;
+
+            border-radius: 50%;
+
+            background: var(--primary-color);
+
+            color: white;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 28px;
+
+            margin-bottom: 25px;
+
+            transition: .3s;
+
+        }
+
+        .portfolio-card:hover .portfolio-icon {
+
+            transform: rotate(10deg) scale(1.1);
+
+        }
+
+        .portfolio-content h4 {
+
+            font-weight: 700;
+
+            color: var(--text-primary);
+
+            margin-bottom: 15px;
+
+            transition: .3s;
+
+        }
+
+        .portfolio-card:hover h4 {
+
+            color: var(--primary-color);
+
+        }
+
+        .portfolio-content p {
+
+            color: var(--text-secondary);
+
+            line-height: 1.8;
+
+            min-height: 90px;
+
+        }
+
+        /* 按鈕 */
+
+        .portfolio-footer {
+
+            margin-top: 25px;
+
+        }
+
+        .portfolio-footer .btn {
+
+            width: 100%;
+
+            border-radius: 30px;
+
+            padding: 12px;
+
+            transition: .3s;
+
+        }
+
+        .portfolio-footer .btn:hover {
+
+            letter-spacing: 1px;
+
+        }
     </style>
 </head>
+
 <body>
-    <section class="s01">
-            <div class="box01"></div>
-            <div class="box02"></div>
-            <div class="box03"></div>
-            <div class="box04"></div>
-            <div class="userImg"></div>
-            <div class="userText">
-                <h1>陳宥呈個人履歷</h1>
-                <hr>
-                <h2>Hello World!</h2>
-                <p>Hello World!</p>
+    <section class="s01 d-flex align-items-center">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5 text-center">
+                    <img src="images/userpage01.jpg" class="img-fluid rounded-4 shadow-lg" style="max-width:350px;">
+                </div>
+                <div class="col-lg-7">
+                    <h5 class="text-secondary">
+                        Hello World 👋
+                    </h5>
+                    <h1 class="display-3 fw-bold">
+                        陳宥呈
+                    </h1>
+                    <h3 class="text-primary mb-4">
+                        Front-End Developer
+                    </h3>
+                    <p class="lead text-secondary">
+                        熱愛前端開發，擅長 HTML、CSS、Bootstrap、
+                        JavaScript、PHP、MySQL，
+                        持續學習 Laravel 與 Web API。
+                    </p>
+                </div>
             </div>
+        </div>
     </section>
-    <section class="s02">
-        <h2>我的作品</h2>
-        <!-- 作品01 -->
-        <div class="card">
-            <h3>切版練習</h3>
-            <p>使用HTML、CSS練習切版</p>
-            <a href="20260605-1.html">查看作品</a>
-        </div>
 
-        <!-- 作品02 -->
-        <div class="card">
-            <h3>Table功能練習</h3>
-            <p>利用Table功能在HTML上產生表格</p>
-            <a href="20260605-ch5-ai.html">查看作品</a>
-        </div>
-
-        <!-- 作品03 -->
-        <div class="card">
-            <h3>美食旅遊網站練習</h3>
-            <p>連結jsonserver讀取資料並進行排版的練習</p>
-            <a href="20260618-3-jsonserver.html">查看作品</a>
-        </div>
-
-        <!-- 作品04 -->
-        <div class="card">
-            <h3>時間線排版練習</h3>
-            <p>運用HTML、CSS、javascript製作展示頁面</p>
-            <a href="20260623-practice-timeline-section-ai.html">查看作品</a>
-        </div>
-
-        <!-- 作品05 -->
-        <div class="card">
-            <h3>表單練習</h3>
-            <p>運用bootstrap表單功能製作一個模擬出貨系統的表單</p>
-            <a href="20260625-ch11-form-js.html">查看作品</a>
+    <section class="s02 py-5">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-5">
+                我的作品
+            </h2>
+            <div class="row g-4">
+                <!-- Project 1 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="portfolio-card h-100">
+                        <div class="portfolio-content">
+                            <div class="portfolio-icon">
+                                <i class="fa-solid fa-code"></i>
+                            </div>
+                            <h4>切版練習</h4>
+                            <p>
+                                使用 HTML、CSS 完成響應式切版，
+                                熟悉 Flexbox、Grid 與 Bootstrap。
+                            </p>
+                        </div>
+                        <div class="portfolio-footer">
+                            <a href="20260605-1.html" class="btn btn-primary">
+                                查看作品
+                                <i class="fa-solid fa-arrow-right ms-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 2 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="portfolio-card h-100">
+                        <div class="portfolio-content">
+                            <div class="portfolio-icon">
+                                <i class="fa-solid fa-code"></i>
+                            </div>
+                            <h4>Table功能練習</h4>
+                            <p>
+                                利用Table功能在HTML上產生表格。
+                            </p>
+                        </div>
+                        <div class="portfolio-footer">
+                            <a href="20260605-ch5-ai.html" class="btn btn-primary">
+                                查看作品
+                                <i class="fa-solid fa-arrow-right ms-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 3 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="portfolio-card h-100">
+                        <div class="portfolio-content">
+                            <div class="portfolio-icon">
+                                <i class="fa-solid fa-code"></i>
+                            </div>
+                            <h4>美食旅遊網站練習</h4>
+                            <p>
+                                連結jsonserver讀取資料並進行排版的練習。
+                            </p>
+                        </div>
+                        <div class="portfolio-footer">
+                            <a href="20260618-3-jsonserver.html" class="btn btn-primary">
+                                查看作品
+                                <i class="fa-solid fa-arrow-right ms-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 4 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="portfolio-card h-100">
+                        <div class="portfolio-content">
+                            <div class="portfolio-icon">
+                                <i class="fa-solid fa-code"></i>
+                            </div>
+                            <h4>時間線排版練習</h4>
+                            <p>
+                                運用HTML、CSS、javascript製作展示頁面。
+                            </p>
+                        </div>
+                        <div class="portfolio-footer">
+                            <a href="20260623-practice-timeline-section-ai.html" class="btn btn-primary">
+                                查看作品
+                                <i class="fa-solid fa-arrow-right ms-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 5 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="portfolio-card h-100">
+                        <div class="portfolio-content">
+                            <div class="portfolio-icon">
+                                <i class="fa-solid fa-code"></i>
+                            </div>
+                            <h4>表單練習</h4>
+                            <p>
+                                運用bootstrap表單功能製作一個模擬出貨系統的表單。
+                            </p>
+                        </div>
+                        <div class="portfolio-footer">
+                            <a href="20260625-ch11-form-js.html" class="btn btn-primary">
+                                查看作品
+                                <i class="fa-solid fa-arrow-right ms-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 </body>
+
 </html>
